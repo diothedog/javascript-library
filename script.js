@@ -1,4 +1,12 @@
 const myLibrary = [];
+const body = document.querySelector("tbody");
+const newBook = document.querySelector("#new-book");
+const dialog = document.querySelector("dialog");
+const submit = document.querySelector("#submit");
+let titleInput = document.querySelector("#title");
+let authorInput = document.querySelector("#author");
+let pagesInput = document.querySelector("#pages");
+let readInput = document.querySelector("#read");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -13,9 +21,6 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks(library) {
-    // Select table body
-    let body = document.querySelector("tbody");
-
     // Clear table body
     while(body.firstElementChild) {
         body.firstElementChild.remove();
@@ -33,3 +38,17 @@ function displayBooks(library) {
     });
 }
 
+newBook.addEventListener("click", () => {
+    dialog.showModal();
+})
+
+submit.addEventListener("click", (event) => {
+    event.preventDefault();
+    let title = titleInput.value;
+    let author = authorInput.value;
+    let pages = pagesInput.value;
+    let read = readInput.value;
+    addBookToLibrary(title, author, pages, read);
+    displayBooks(myLibrary);
+    dialog.close();
+})
