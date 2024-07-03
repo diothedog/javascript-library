@@ -9,7 +9,6 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const readInput = document.querySelector("#read");
 const cancel = document.querySelector("#cancel");
-const delete = document.querySelector(".delete");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -36,9 +35,15 @@ function displayBooks(library) {
                         <td>${book.author}</td>
                         <td>${book.pages}</td>
                         <td>${book.read}</td
-                        <td><button class="delete">Delete</button></td>`;
+                        <td><button class="remove">Remove</button></td>`;
         row.classList.add("book-row");
         body.appendChild(row);
+        const remove = document.querySelector(".remove");
+        remove.addEventListener("click", () => {
+            let index = myLibrary.indexOf(book);
+            myLibrary.splice(index, 1);
+            displayBooks(myLibrary);
+        });
     });
 }
 
@@ -62,4 +67,6 @@ cancel.addEventListener("click", (e) => {
     e.preventDefault();
     dialog.close();
 });
+
+
 
