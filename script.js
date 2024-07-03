@@ -2,6 +2,7 @@ const myLibrary = [];
 const body = document.querySelector("tbody");
 const newBook = document.querySelector("#new-book");
 const dialog = document.querySelector("dialog");
+const form = document.querySelector("form");
 const submit = document.querySelector("#submit");
 let titleInput = document.querySelector("#title");
 let authorInput = document.querySelector("#author");
@@ -50,5 +51,6 @@ submit.addEventListener("click", (event) => {
     let read = readInput.value;
     addBookToLibrary(title, author, pages, read);
     displayBooks(myLibrary);
+    form.reset();
     dialog.close();
 })
