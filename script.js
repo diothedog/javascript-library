@@ -4,10 +4,11 @@ const newBook = document.querySelector("#new-book");
 const dialog = document.querySelector("dialog");
 const form = document.querySelector("form");
 const submit = document.querySelector("#submit");
-let titleInput = document.querySelector("#title");
-let authorInput = document.querySelector("#author");
-let pagesInput = document.querySelector("#pages");
-let readInput = document.querySelector("#read");
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+const readInput = document.querySelector("#read");
+const cancel = document.querySelector("#cancel");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -41,7 +42,7 @@ function displayBooks(library) {
 
 newBook.addEventListener("click", () => {
     dialog.showModal();
-})
+});
 
 submit.addEventListener("click", (event) => {
     event.preventDefault();
@@ -53,4 +54,9 @@ submit.addEventListener("click", (event) => {
     displayBooks(myLibrary);
     form.reset();
     dialog.close();
-})
+});
+
+cancel.addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.close();
+});
