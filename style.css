@@ -1,0 +1,34 @@
+body {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+    font-size: 16px;
+}
+
+td,
+th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#new-book {
+    margin-top: 15px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+dialog button {
+    margin-top: 10px;
+}

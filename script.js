@@ -1,5 +1,5 @@
 const myLibrary = [];
-const body = document.querySelector("tbody");
+const tbody = document.querySelector("tbody");
 const newBook = document.querySelector("#new-book");
 const dialog = document.querySelector("dialog");
 const form = document.querySelector("form");
@@ -24,8 +24,8 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayBooks(library) {
     // Clear table body
-    while(body.firstElementChild) {
-        body.firstElementChild.remove();
+    while(tbody.firstElementChild) {
+        tbody.firstElementChild.remove();
     }
 
     // Add each book row to table body
@@ -36,11 +36,11 @@ function displayBooks(library) {
                         <td>${book.pages}</td>
                         <td>${book.read}</td`;
         row.classList.add("book-row");
-        body.appendChild(row);
+        tbody.appendChild(row);
 
         // Add remove button to row
         const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
+        removeButton.textContent = "REMOVE";
         const removeCell = document.createElement("td");
         row.append(removeCell);
         removeCell.append(removeButton);
@@ -54,7 +54,7 @@ function displayBooks(library) {
 
         // Add read toggle button to row
         const readToggle = document.createElement("button");
-        readToggle.textContent = "Toggle Read";
+        readToggle.textContent = "TOGGLE READ";
         const toggleCell = document.createElement("td");
         row.append(toggleCell);
         toggleCell.append(readToggle);
@@ -92,5 +92,9 @@ cancel.addEventListener("click", (e) => {
     dialog.close();
 });
 
+// Add a couple of example books to library and display
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 300, "yes");
+addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 565, "no");
+displayBooks(myLibrary);
 
 
