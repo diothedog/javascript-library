@@ -28,18 +28,24 @@ function displayBooks(library) {
         body.firstElementChild.remove();
     }
 
-    // Add each book to table body
+    // Add each book row to table body
     library.forEach((book) => {
         let row = document.createElement("tr");
         row.innerHTML = `<td>${book.title}</td>
                         <td>${book.author}</td>
                         <td>${book.pages}</td>
-                        <td>${book.read}</td
-                        <td><button class="remove">Remove</button></td>`;
+                        <td>${book.read}</td`;
         row.classList.add("book-row");
         body.appendChild(row);
-        const remove = document.querySelector(".remove");
-        remove.addEventListener("click", () => {
+
+        // Add remove button to row
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        const removeCell = document.createElement("td");
+        row.append(removeCell);
+        removeCell.append(removeButton);
+
+        removeButton.addEventListener("click", () => {
             let index = myLibrary.indexOf(book);
             myLibrary.splice(index, 1);
             displayBooks(myLibrary);
