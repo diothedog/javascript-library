@@ -45,9 +45,27 @@ function displayBooks(library) {
         row.append(removeCell);
         removeCell.append(removeButton);
 
+        // Remove book from library on click
         removeButton.addEventListener("click", () => {
             let index = myLibrary.indexOf(book);
             myLibrary.splice(index, 1);
+            displayBooks(myLibrary);
+        });
+
+        // Add read toggle button to row
+        const readToggle = document.createElement("button");
+        readToggle.textContent = "Toggle Read";
+        const toggleCell = document.createElement("td");
+        row.append(toggleCell);
+        toggleCell.append(readToggle);
+
+        // Toggle read on click
+        readToggle.addEventListener("click", () => {
+            if (book.read === "yes") {
+                book.read = "no";
+            } else {
+                book.read = "yes";
+            }
             displayBooks(myLibrary);
         });
     });
