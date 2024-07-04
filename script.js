@@ -7,7 +7,7 @@ const submit = document.querySelector("#submit");
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
-const readInput = document.querySelector("#read");
+const readInput = form.elements["read"];
 const cancel = document.querySelector("#cancel");
 
 function Book(title, author, pages, read) {
